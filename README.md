@@ -1,0 +1,65 @@
+<h1 align="center">react-router-prompt 🚨</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/sshyam-gupta/react-router-prompt#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/sshyam-gupta/react-router-prompt/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/sshyam-gupta/react-router-prompt/blob/master/LICENSE" target="_blank">
+    <img alt="License: ISC" src="https://img.shields.io/github/license/sshyam-gupta/react-router-prompt" />
+  </a>
+</p>
+
+> A replacement component for the react-router 6 `Prompt`. Allows for more flexible dialogs.
+
+### 🏠 [Homepage](https://github.com/sshyam-gupta/react-router-prompt#readme)
+
+### ✨ [Demo](https://github.com/sshyam-gupta/react-router-prompt#readme)
+
+## Install
+
+```sh
+yarn add react-router-prompt
+```
+
+## Usage
+
+```jsx
+<ReactRouterPrompt when={isDirty}>
+  {({ isActive, onConfirm, onCancel }) => (
+    <Modal show={isActive}>
+      <div>
+        <p>Do you really want to leave?</p>
+        <button onClick={onCancel}>Cancel</button>
+        <button onClick={onConfirm}>Ok</button>
+      </div>
+    </Modal>
+  )}
+</ReactRouterPrompt>
+```
+
+## Author
+
+👤 **Shyam Gupta (shyamm@outlook.com)**
+
+- Website: https://sshyam-gupta.netlify.app/
+- Twitter: [@shyamm06](https://twitter.com/shyamm06)
+- Github: [@sshyam-gupta](https://github.com/sshyam-gupta)
+- LinkedIn: [@https:\/\/www.linkedin.com\/in\/shyam-gupta-66463a62\/](https://linkedin.com/in/https://www.linkedin.com/in/shyam-gupta-66463a62/)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/sshyam-gupta/react-router-prompt/issues).
+
+# You can also take a look at the [contributing guide](https://github.com/sshyam-gupta/react-router-prompt/blob/master/CONTRIBUTING.md).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2022 [Shyam Gupta (shyamm@outlook.com)](https://github.com/sshyam-gupta).<br />
+This project is [ISC](https://github.com/sshyam-gupta/react-router-prompt/blob/master/LICENSE) licensed.

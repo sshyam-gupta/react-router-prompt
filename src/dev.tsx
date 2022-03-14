@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
-import ReactRouterPrompt from "./index";
+import React, {useState} from 'react';
+import ReactDOM from 'react-dom';
+import {BrowserRouter, NavLink, Routes, Route} from 'react-router-dom';
+import ReactRouterPrompt from './index';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById("root")
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+    document.getElementById('root'),
 );
 
 function App() {
@@ -36,13 +36,13 @@ function Home() {
 }
 
 function Form() {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   return (
     <div>
       <h1>About</h1>
       <ReactRouterPrompt when={input.length >= 1}>
-        {({ isActive, onConfirm, onCancel }) =>
+        {({isActive, onConfirm, onCancel}) =>
           isActive && (
             <div>
               <p>Unsaved Changes. Are you sure you wish to exit?</p>
