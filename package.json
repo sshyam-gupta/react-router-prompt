@@ -8,6 +8,18 @@
   "author": "Shyam Gupta (shyamm@outlook.com)",
   "license": "ISC",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sshyam-gupta/react-router-prompt.git"
+  },
+  "homepage": "https://github.com/sshyam-gupta/react-router-prompt#readme",
+  "keywords": [
+    "confirm",
+    "navigation",
+    "prompt",
+    "react",
+    "router"
+  ],
   "scripts": {
     "build": "yarn clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
     "clean": "rimraf dist",
@@ -26,6 +38,10 @@
     "live-server": "^1.2.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.6.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-router-dom": ">=6.x"
   },
   "files": [
     "dist"
