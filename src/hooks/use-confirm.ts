@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import {useState, useEffect, useCallback} from 'react';
 
 const noop = () => {};
 
@@ -47,14 +47,14 @@ const useConfirm = (): ConfirmLeaveReturnType => {
     });
 
     return promise.then(
-      () => {
-        setConfirm({ ...confirm, isActive: false, hasConfirmed: true });
-        return true;
-      },
-      () => {
-        setConfirm({ ...confirm, isActive: false });
-        return false;
-      }
+        () => {
+          setConfirm({...confirm, isActive: false, hasConfirmed: true});
+          return true;
+        },
+        () => {
+          setConfirm({...confirm, isActive: false});
+          return false;
+        },
     );
   }, []);
 

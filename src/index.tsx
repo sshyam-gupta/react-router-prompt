@@ -1,7 +1,15 @@
-import React from "react";
+import useConfirm from "hooks/use-confirm";
+import React, { useCallback } from "react";
+
+import useBlocker from "./hooks/use-blocker";
 
 interface Props {
   when: Boolean;
+  children: (data: {
+    isActive: Boolean;
+    onCancel: (value: unknown) => void;
+    onConfirm: (value: unknown) => void;
+  }) => React.ReactNode;
 }
 
 /**
@@ -10,8 +18,8 @@ interface Props {
  *
  * @example
  * <ReactRouterPrompt when={this.props.isDirty}>
- *   {({isOpen, onConfirm, onCancel}) => (
- *     <Modal show={isOpen}>
+ *   {({isActive, onConfirm, onCancel}) => (
+ *     <Modal show={isActive}>
  *       <div>
  *         <p>Do you really want to leave?</p>
  *         <button onClick={onCancel}>Cancel</button>
@@ -22,8 +30,37 @@ interface Props {
  * </ReactRouterPrompt>
  */
 
-const ReactRouterPrompt: React.FC<Props> = ({ when }) => (
-  <div>Foo's value is: {when}</div>
-);
+const ReactRouterPrompt: React.FC<Props> = ({ when, children }) => {
+  const {
+    isActive,
+    proceed,
+    cancel,
+    onConfirm,
+    hasConfirmed,
+    resetConfirmation,
+  } = useConfirm();
+
+  const blocker = useCallback(
+    async (tx) => {
+      if (await onConfirm()) {
+        resetConfirmation();
+        tx.retry();
+      }
+    },
+    [resetConfirmation, onConfirm]
+  );
+
+  useBlocker(blocker, when && !hasConfirmed);
+
+  return (
+    <div>
+      {children({
+        isActive,
+        onConfirm: proceed,
+        onCancel: cancel,
+      })}
+    </div>
+  );
+};
 
 export default ReactRouterPrompt;
