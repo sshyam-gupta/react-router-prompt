@@ -1,16 +1,16 @@
-import useConfirm from 'hooks/use-confirm';
-import React, {useCallback} from 'react';
+import React, { useCallback } from "react";
 
-import useBlocker from './hooks/use-blocker';
+import useConfirm from "./hooks/use-confirm";
+import useBlocker from "./hooks/use-blocker";
 
-interface Props {
-  when: Boolean;
+type ReactRouterPromptProps = {
+  when: boolean;
   children: (data: {
-    isActive: Boolean;
+    isActive: boolean;
     onCancel: (value: unknown) => void;
     onConfirm: (value: unknown) => void;
   }) => React.ReactNode;
-}
+};
 
 /**
  * A replacement component for the react-router `Prompt`.
@@ -30,7 +30,10 @@ interface Props {
  * </ReactRouterPrompt>
  */
 
-const ReactRouterPrompt: React.FC<Props> = ({when, children}) => {
+const ReactRouterPrompt: React.FC<ReactRouterPromptProps> = ({
+  when,
+  children,
+}) => {
   const {
     isActive,
     proceed,
@@ -41,13 +44,13 @@ const ReactRouterPrompt: React.FC<Props> = ({when, children}) => {
   } = useConfirm();
 
   const blocker = useCallback(
-      async (tx) => {
-        if (await onConfirm()) {
-          resetConfirmation();
-          tx.retry();
-        }
-      },
-      [resetConfirmation, onConfirm],
+    async (tx) => {
+      if (await onConfirm()) {
+        resetConfirmation();
+        tx.retry();
+      }
+    },
+    [resetConfirmation, onConfirm]
   );
 
   useBlocker(blocker, when && !hasConfirmed);

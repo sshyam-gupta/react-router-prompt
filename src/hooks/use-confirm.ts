@@ -1,6 +1,8 @@
-import {useState, useEffect, useCallback} from 'react';
+import { useState, useEffect, useCallback } from "react";
 
-const noop = () => {};
+const noop = () => {
+  /*No Operation*/
+};
 
 const initialConfirmState = {
   isActive: false,
@@ -9,15 +11,15 @@ const initialConfirmState = {
   cancel: noop,
 };
 
-interface InitialStateType {
-  isActive: Boolean;
-  hasConfirmed: Boolean;
+declare interface InitialStateType {
+  isActive: boolean;
+  hasConfirmed: boolean;
   proceed: (value: unknown) => void;
   cancel: (value: unknown) => void;
 }
 
-interface ConfirmLeaveReturnType extends InitialStateType {
-  onConfirm: () => Promise<Boolean>;
+declare interface ConfirmLeaveReturnType extends InitialStateType {
+  onConfirm: () => Promise<boolean>;
   resetConfirmation: () => void;
 }
 
@@ -47,14 +49,14 @@ const useConfirm = (): ConfirmLeaveReturnType => {
     });
 
     return promise.then(
-        () => {
-          setConfirm({...confirm, isActive: false, hasConfirmed: true});
-          return true;
-        },
-        () => {
-          setConfirm({...confirm, isActive: false});
-          return false;
-        },
+      () => {
+        setConfirm({ ...confirm, isActive: false, hasConfirmed: true });
+        return true;
+      },
+      () => {
+        setConfirm({ ...confirm, isActive: false });
+        return false;
+      }
     );
   }, []);
 

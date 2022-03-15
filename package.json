@@ -1,10 +1,10 @@
 {
   "name": "react-router-prompt",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Router Navigation Prompt for v6",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "author": "Shyam Gupta (shyamm@outlook.com)",
   "license": "MIT",
   "private": false,
@@ -21,24 +21,18 @@
     "router"
   ],
   "scripts": {
-    "build": "yarn clean && node build.js && tsc --emitDeclarationOnly --outDir dist",
-    "clean": "rimraf dist",
-    "dev": "node serve.js",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "rimraf dist && tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "prepublishOnly": "yarn build"
   },
-  "dependencies": {
-    "@types/react": "^17.0.40",
-    "@types/react-dom": "^17.0.13"
-  },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "chokidar": "^3.5.3",
-    "esbuild": "^0.14.26",
+    "@types/react": "^17.0.40",
+    "@types/react-dom": "^17.0.13",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
     "eslint": "^8.11.0",
-    "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.29.4",
-    "live-server": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^6.2.2",
@@ -47,8 +41,8 @@
     "typescript": "^4.6.2"
   },
   "peerDependencies": {
-    "react": ">=16.8",
-    "react-dom": ">=16.8",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "react-router-dom": ">=6.x"
   },
   "files": [
