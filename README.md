@@ -7,7 +7,7 @@
   <a href="https://github.com/sshyam-gupta/react-router-prompt/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/sshyam-gupta/react-router-prompt/blob/master/LICENSE" target="_blank">
+  <a href="https://github.com/sshyam-gupta/react-router-prompt/blob/main/LICENSE" target="_blank">
     <img alt="License: ISC" src="https://img.shields.io/github/license/sshyam-gupta/react-router-prompt" />
   </a>
   <a href="https://www.npmjs.com/package/react-router-prompt" target="_blank">
@@ -59,7 +59,7 @@ yarn add react-router-prompt
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/sshyam-gupta/react-router-prompt/issues).
 
-# You can also take a look at the [contributing guide](https://github.com/sshyam-gupta/react-router-prompt/blob/master/CONTRIBUTING.md).
+# You can also take a look at the [contributing guide](https://github.com/sshyam-gupta/react-router-prompt/blob/main/CONTRIBUTING.md).
 
 ## Show your support
 
@@ -68,4 +68,4 @@ Give a ⭐️ if this project helped you!
 ## 📝 License
 
 Copyright © 2022 [Shyam Gupta (shyamm@outlook.com)](https://github.com/sshyam-gupta).<br />
-This project is [ISC](https://github.com/sshyam-gupta/react-router-prompt/blob/master/LICENSE) licensed.
+This project is [ISC](https://github.com/sshyam-gupta/react-router-prompt/blob/main/LICENSE) licensed.
