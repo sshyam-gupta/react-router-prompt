@@ -59,11 +59,15 @@ yarn add react-router-prompt
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/sshyam-gupta/react-router-prompt/issues).
 
-# You can also take a look at the [contributing guide](https://github.com/sshyam-gupta/react-router-prompt/blob/main/CONTRIBUTING.md).
-
 ## Show your support
 
 Give a ⭐️ if this project helped you!
+
+## Credits
+
+- Inspiration from [react-router-navigation-prompt](https://www.npmjs.com/package/react-router-navigation-prompt)
+
+- Gist: [https://gist.github.com/rmorse/426ffcc579922a82749934826fa9f743](https://gist.github.com/rmorse/426ffcc579922a82749934826fa9f743)
 
 ## 📝 License
 
