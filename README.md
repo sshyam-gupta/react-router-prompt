@@ -10,13 +10,19 @@
   <a href="https://github.com/sshyam-gupta/react-router-prompt/blob/master/LICENSE" target="_blank">
     <img alt="License: ISC" src="https://img.shields.io/github/license/sshyam-gupta/react-router-prompt" />
   </a>
+  <a href="https://www.npmjs.com/package/react-router-prompt" target="_blank">
+    <img alt="NPM version" src="https://img.shields.io/npm/v/react-router-prompt.svg" />
+  </a>
+  <a href="https://www.npmjs.com/package/react-router-prompt" target="_blank">
+    <img alt="NPM downloads" src="https://img.shields.io/npm/dw/react-router-prompt.svg" />
+  </a>
 </p>
 
 > A replacement component for the react-router 6 `Prompt`. Allows for more flexible dialogs.
 
 ### 🏠 [Homepage](https://github.com/sshyam-gupta/react-router-prompt#readme)
 
-### ✨ [Demo](https://github.com/sshyam-gupta/react-router-prompt#readme)
+### ✨ [Demo](https://react-router-prompt.netlify.app/)
 
 ## Install
 
