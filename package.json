@@ -6,7 +6,7 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "author": "Shyam Gupta (shyamm@outlook.com)",
-  "license": "ISC",
+  "license": "MIT",
   "private": true,
   "repository": {
     "type": "git",
