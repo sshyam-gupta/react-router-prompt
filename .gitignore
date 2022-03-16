@@ -7,3 +7,6 @@ public/script.js.map
 # OS
 .DS_Store
 tsconfig.tsbuildinfo
+
+/example/node_modules
+/example/build
