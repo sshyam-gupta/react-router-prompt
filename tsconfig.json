@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -16,5 +16,5 @@
     "emitDeclarationOnly": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "src/dev.tsx"]
+  "exclude": ["node_modules", "dist"]
 }

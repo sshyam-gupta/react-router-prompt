@@ -6,20 +6,18 @@ import dts from "rollup-plugin-dts";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
-const packageJson = require("./package.json");
-
 export default [
   {
     input: "src/index.tsx",
     output: [
       {
-        file: packageJson.main,
+        file: "dist/cjs/index.js",
         format: "cjs",
         sourcemap: true,
         exports: "default",
       },
       {
-        file: packageJson.module,
+        file: "dist/esm/index.js",
         format: "esm",
         sourcemap: true,
       },
