@@ -9,6 +9,7 @@ function useBlocker(blocker: Blocker, when = true) {
   useEffect(() => {
     if (!when) return;
 
+    // @ts-ignore
     const unblock = navigator.block((tx: Transition) => {
       const autoUnblockingTx = {
         ...tx,

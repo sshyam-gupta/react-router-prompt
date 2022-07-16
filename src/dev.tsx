@@ -1,9 +1,37 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
 
-import ReactRouterPrompt from "react-router-prompt";
+import ReactRouterPrompt from "./index";
 import { ErrorBoundary } from "react-error-boundary";
 
-function ErrorFallback({ error, resetErrorBoundary }) {
+import { Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
+
+export default function App() {
+  return (
+    <div>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        &nbsp;&nbsp;&nbsp;
+        <NavLink to="/promptable">Prompt</NavLink>
+      </nav>
+
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/promptable" element={<Form />} />
+      </Routes>
+    </div>
+  );
+}
+
+const Home = () => {
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  );
+};
+
+function ErrorFallback({ error, resetErrorBoundary }: any) {
   return (
     <div role="alert">
       <p>Something went wrong:</p>
@@ -47,4 +75,10 @@ const Form = () => {
   );
 };
 
-export default Form;
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
