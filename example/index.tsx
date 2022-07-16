@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom/client";
+import 'react-app-polyfill/ie11';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 
-import ReactRouterPrompt from "./index";
-import { ErrorBoundary } from "react-error-boundary";
+import ReactRouterPrompt from '../.';
+import { ErrorBoundary } from 'react-error-boundary';
 
-import { Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
+import { Routes, Route, NavLink, BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   return (
@@ -42,7 +43,7 @@ function ErrorFallback({ error, resetErrorBoundary }: any) {
 }
 
 const Form = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
@@ -61,7 +62,7 @@ const Form = () => {
         </ReactRouterPrompt>
 
         <input
-          onChange={(e) => setInput(e.target.value)}
+          onChange={e => setInput(e.target.value)}
           value={input}
           placeholder="Enter something"
         />
@@ -75,10 +76,11 @@ const Form = () => {
   );
 };
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root') as HTMLElement
 );
