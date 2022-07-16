@@ -44,7 +44,8 @@ const ReactRouterPrompt: React.FC<ReactRouterPromptProps> = ({
   } = useConfirm();
 
   const blocker = useCallback(
-    async (tx) => {
+    // @ts-ignore
+    async tx => {
       if (await onConfirm()) {
         resetConfirmation();
         tx.retry();

@@ -1,7 +1,36 @@
-import { useState } from "react";
+import "react-app-polyfill/ie11";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-import ReactRouterPrompt from "react-router-prompt";
+import ReactRouterPrompt from "../dist";
 import { ErrorBoundary } from "react-error-boundary";
+
+import { Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
+
+export default function App() {
+  return (
+    <div>
+      <nav>
+        <NavLink to="/">Home</NavLink>
+        &nbsp;&nbsp;&nbsp;
+        <NavLink to="/promptable">Prompt</NavLink>
+      </nav>
+
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/promptable" element={<Form />} />
+      </Routes>
+    </div>
+  );
+}
+
+const Home = () => {
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  );
+};
 
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
@@ -33,7 +62,7 @@ const Form = () => {
         </ReactRouterPrompt>
 
         <input
-          onChange={(e) => setInput(e.target.value)}
+          onChange={e => setInput(e.target.value)}
           value={input}
           placeholder="Enter something"
         />
@@ -47,4 +76,11 @@ const Form = () => {
   );
 };
 
-export default Form;
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
+);

@@ -12,7 +12,7 @@
 
 ### 🏠 [Homepage](https://github.com/sshyam-gupta/react-router-prompt#readme)
 
-### ✨ [Demo](https://react-router-prompt.netlify.app/)
+### ✨ [Demo](https://codesandbox.io/s/react-router-prompt-example-zv3zt5?file=/src/App.js)
 
 ## Install
 
@@ -36,15 +36,6 @@ yarn add react-router-prompt
 </ReactRouterPrompt>
 ```
 
-## Author
-
-👤 **Shyam Gupta (shyamm@outlook.com)**
-
-- Website: https://sshyam-gupta.netlify.app/
-- Twitter: [@shyamm06](https://twitter.com/shyamm06)
-- Github: [@sshyam-gupta](https://github.com/sshyam-gupta)
-- LinkedIn: [@https:\/\/www.linkedin.com\/in\/shyam-gupta-66463a62\/](https://linkedin.com/in/https://www.linkedin.com/in/shyam-gupta-66463a62/)
-
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/sshyam-gupta/react-router-prompt/issues).
@@ -63,3 +54,12 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2022 [Shyam Gupta (shyamm@outlook.com)](https://github.com/sshyam-gupta).<br />
 This project is [MIT](https://github.com/sshyam-gupta/react-router-prompt/blob/main/LICENSE) licensed.
+
+## Author
+
+👤 **Shyam Gupta (shyamm@outlook.com)**
+
+- Website: https://sshyam-gupta.space/
+- Twitter: [@shyamm06](https://twitter.com/shyamm06)
+- Github: [@sshyam-gupta](https://github.com/sshyam-gupta)
+- LinkedIn: [@https:\/\/www.linkedin.com\/in\/shyam-gupta-66463a62\/](https://linkedin.com/in/https://www.linkedin.com/in/shyam-gupta-66463a62/)

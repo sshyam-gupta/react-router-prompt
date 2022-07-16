@@ -58,10 +58,10 @@ const useConfirm = (): ConfirmLeaveReturnType => {
         return false;
       }
     );
-  }, []);
+  }, [confirm]);
 
   const resetConfirmation = useCallback(() => {
-    () => setConfirm(initialConfirmState);
+    setConfirm(initialConfirmState);
   }, []);
 
   return {

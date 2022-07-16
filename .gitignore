@@ -10,3 +10,12 @@ tsconfig.tsbuildinfo
 
 /example/node_modules
 /example/build
+
+*.log
+.DS_Store
+node_modules
+.cache
+dist
+.parcel-cache
+
+example/.parcel-cache
