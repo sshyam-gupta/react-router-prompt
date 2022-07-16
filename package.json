@@ -1,6 +1,6 @@
 {
   "name": "react-router-prompt",
-  "version": "0.2.0-beta-3",
+  "version": "0.2.1",
   "description": "React Router Navigation Prompt for v6",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -25,7 +25,6 @@
     "build": "yarn clean && tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
     "size": "size-limit",
     "prepublishOnly": "yarn build",
     "example": "cd example && yarn start"
