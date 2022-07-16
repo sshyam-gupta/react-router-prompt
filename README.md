@@ -12,7 +12,7 @@
 
 ### 🏠 [Homepage](https://github.com/sshyam-gupta/react-router-prompt#readme)
 
-### ✨ [Demo](https://react-router-prompt.netlify.app/)
+### ✨ [Demo](https://codesandbox.io/s/react-router-prompt-example-zv3zt5?file=/src/App.js)
 
 ## Install
 
