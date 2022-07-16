@@ -1,11 +1,11 @@
-import 'react-app-polyfill/ie11';
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import "react-app-polyfill/ie11";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-import ReactRouterPrompt from '../.';
-import { ErrorBoundary } from 'react-error-boundary';
+import ReactRouterPrompt from "../dist";
+import { ErrorBoundary } from "react-error-boundary";
 
-import { Routes, Route, NavLink, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
 
 export default function App() {
   return (
@@ -32,7 +32,7 @@ const Home = () => {
   );
 };
 
-function ErrorFallback({ error, resetErrorBoundary }: any) {
+function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
       <p>Something went wrong:</p>
@@ -43,7 +43,7 @@ function ErrorFallback({ error, resetErrorBoundary }: any) {
 }
 
 const Form = () => {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
@@ -82,5 +82,5 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root")
 );

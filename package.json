@@ -20,12 +20,15 @@
     "router"
   ],
   "scripts": {
+    "clean": "rimraf dist",
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "yarn clean && tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "size": "size-limit"
+    "size": "size-limit",
+    "prepublishOnly": "yarn build",
+    "example": "cd example && yarn start"
   },
   "husky": {
     "hooks": {
