@@ -21,7 +21,7 @@ declare interface InitialStateType {
 }
 
 declare interface ConfirmLeaveReturnType extends InitialStateType {
-  onConfirm: (tx: Transition) => Promise<boolean>;
+  onConfirm: (tx: Transition) => Promise<boolean | "noReset">;
   resetConfirmation: () => void;
 }
 
@@ -54,19 +54,23 @@ const useConfirm = (
   }, []);
 
   const onConfirm = async (tx: Transition): Promise<boolean> => {
-    const promise = new Promise((resolve, reject) => {
+    const promise = new Promise<"noReset" | unknown>((resolve, reject) => {
       setConfirm((prevState: InitialStateType) => ({
         ...prevState,
         isActive: true,
         proceed: resolve,
         cancel: reject,
       }));
+
       // Go ahead and resolve the promise when the `when` function
       // returns `false`, which means the prompt should not be displayed
       // and navigation should occur.
       if (typeof when === "function") {
         if (!when(location, tx.location, tx.action)) {
-          resolve(null);
+          // Use "noReset" to ensure that `resetConfirmation()` is not executed,
+          // which would cause an infinite loop when attempting to navigate
+          // with the forward and back buttons in the browser.
+          resolve("noReset");
         }
       }
     });
