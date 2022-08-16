@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Action, Location } from "history";
+import { Action, Location, Transition } from "history";
 
 import useBlocker from "./hooks/use-blocker";
 import useConfirm from "./hooks/use-confirm";
@@ -51,10 +51,10 @@ const ReactRouterPrompt: React.FC<ReactRouterPromptProps> = ({
   } = useConfirm(when);
 
   const blocker = useCallback(
-    // @ts-ignore
-    async tx => {
-      if (await onConfirm(tx)) {
-        resetConfirmation();
+    async (tx: Transition) => {
+      const result = await onConfirm(tx);
+      if (result) {
+        if (result !== "noReset") resetConfirmation();
         tx.retry();
       }
     },

@@ -17,12 +17,12 @@ const initialConfirmState = {
 declare interface InitialStateType {
   isActive: boolean;
   hasConfirmed: boolean;
-  proceed: (value: unknown) => void;
-  cancel: (value: unknown) => void;
+  proceed: () => void;
+  cancel: () => void;
 }
 
 declare interface ConfirmLeaveReturnType extends InitialStateType {
-  onConfirm: (tx: Transition) => Promise<boolean>;
+  onConfirm: (tx: Transition) => Promise<boolean | "noReset">;
   resetConfirmation: () => void;
 }
 
@@ -51,12 +51,12 @@ const useConfirm = (
 
   const onConfirm = useCallback(
     (tx: Transition) => {
-      const promise = new Promise((resolve, reject) => {
+      const promise = new Promise<"noReset" | true>((resolve, reject) => {
         setConfirm((prevState: InitialStateType) => ({
           ...prevState,
           isActive: true,
-          proceed: resolve,
-          cancel: reject,
+          proceed: () => resolve(true),
+          cancel: () => reject(),
         }));
 
         // Go ahead and resolve the promise when the `when` function
@@ -64,15 +64,18 @@ const useConfirm = (
         // and navigation should occur.
         if (typeof when === "function") {
           if (!when(location, tx.location, tx.action)) {
-            resolve(null);
+            // Use "noReset" to ensure that `resetConfirmation()` is not executed,
+            // which would cause an infinite loop when attempting to navigate
+            // with the forward and back buttons in the browser.
+            resolve("noReset");
           }
         }
       });
 
       return promise.then(
-        () => {
+        result => {
           setConfirm({ ...confirm, isActive: false, hasConfirmed: true });
-          return true;
+          return result;
         },
         () => {
           setConfirm({ ...confirm, isActive: false });
