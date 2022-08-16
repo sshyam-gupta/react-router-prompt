@@ -1,10 +1,17 @@
 import React, { useCallback } from "react";
+import { Action, Location } from "history";
 
-import useConfirm from "./hooks/use-confirm";
 import useBlocker from "./hooks/use-blocker";
+import useConfirm from "./hooks/use-confirm";
 
-type ReactRouterPromptProps = {
-  when: boolean;
+export type ReactRouterPromptProps = {
+  when:
+    | boolean
+    | ((
+        currentLocation: Location,
+        nextLocation: Location,
+        _action: Action
+      ) => boolean);
   children: (data: {
     isActive: boolean;
     onCancel: (value: unknown) => void;
@@ -41,12 +48,12 @@ const ReactRouterPrompt: React.FC<ReactRouterPromptProps> = ({
     onConfirm,
     hasConfirmed,
     resetConfirmation,
-  } = useConfirm();
+  } = useConfirm(when);
 
   const blocker = useCallback(
     // @ts-ignore
     async tx => {
-      if (await onConfirm()) {
+      if (await onConfirm(tx)) {
         resetConfirmation();
         tx.retry();
       }
