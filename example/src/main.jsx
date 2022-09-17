@@ -5,7 +5,13 @@ import ReactRouterPrompt from "../../src";
 
 import { ErrorBoundary } from "react-error-boundary";
 
-import { Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  NavLink,
+  BrowserRouter,
+  useLocation,
+} from "react-router-dom";
 
 export default function App() {
   return (
@@ -44,12 +50,19 @@ function ErrorFallback({ error, resetErrorBoundary }) {
 
 const Form = () => {
   const [input, setInput] = useState("");
+  const location = useLocation();
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <div>
         <h1>About</h1>
-        <ReactRouterPrompt when={input.length >= 1}>
+        <ReactRouterPrompt
+          when={nextLocation => {
+            return (
+              input.length >= 1 && location.pathname !== nextLocation.pathname
+            );
+          }}
+        >
           {({ isActive, onConfirm, onCancel }) =>
             isActive && (
               <div className="lightbox">

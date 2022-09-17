@@ -6,13 +6,7 @@ import ConfirmContextProvider, { ConfirmContext } from "./ConfirmContext";
 import useConfirm from "./hooks/use-confirm";
 
 export type ReactRouterPromptProps = {
-  when:
-    | boolean
-    | ((
-        currentLocation: Location,
-        nextLocation: Location,
-        _action: Action
-      ) => boolean);
+  when: boolean | ((nextLocation: Location, _action: Action) => boolean);
   children: (data: {
     isActive: boolean;
     onCancel: (value: unknown) => void;
@@ -55,12 +49,14 @@ const ReactRouterPrompt: React.FC<ReactRouterPromptProps> = ({
     async (tx: Transition) => {
       const result = await onConfirm(tx);
       if (result) {
-        if (result !== "noReset") resetConfirmation();
+        resetConfirmation();
         tx.retry();
       }
     },
     [resetConfirmation, onConfirm]
   );
+
+  // TODO: Check fif effect is required to reset resolution if "when" is changed.
 
   useBlocker(blocker, when && !resolve);
 

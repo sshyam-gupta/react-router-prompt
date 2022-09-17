@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback, useContext } from "react";
 import { ConfirmContext } from "../ConfirmContext";
 import { Transition } from "history";
-import { useLocation } from "react-router-dom";
 import { ReactRouterPromptProps } from "..";
 
 const noop = () => {
@@ -21,7 +20,7 @@ declare interface InitialStateType {
 }
 
 declare interface ConfirmLeaveReturnType extends InitialStateType {
-  onConfirm: (tx: Transition) => Promise<boolean | "noReset">;
+  onConfirm: (tx: Transition) => Promise<boolean>;
   resetConfirmation: () => void;
 }
 
@@ -30,12 +29,6 @@ const useConfirm = (
 ): ConfirmLeaveReturnType => {
   const [confirm, setConfirm] = useState<InitialStateType>(initialConfirmState);
   const { setResolve } = useContext(ConfirmContext) || {};
-
-  // Create a location object that includes the router's `basename` in
-  // the pathname since the blocker location object includes `basename`.
-  const { hash, key, search, state } = useLocation();
-  const { pathname } = window.location;
-  const location = { hash, key, pathname, search, state };
 
   useEffect(() => {
     if (confirm.isActive) {
@@ -53,41 +46,42 @@ const useConfirm = (
     setConfirm(initialConfirmState);
   }, []);
 
-  const onConfirm = async (tx: Transition): Promise<boolean> => {
-    const promise = new Promise<"noReset" | unknown>((resolve, reject) => {
-      setConfirm((prevState: InitialStateType) => ({
-        ...prevState,
-        isActive: true,
-        proceed: resolve,
-        cancel: reject,
-      }));
+  const onConfirm = useCallback(
+    async (tx: Transition): Promise<boolean> => {
+      const promise = new Promise(async (resolve, reject) => {
+        setConfirm((prevState: InitialStateType) => ({
+          ...prevState,
+          isActive: true,
+          proceed: resolve,
+          cancel: reject,
+        }));
 
-      // Go ahead and resolve the promise when the `when` function
-      // returns `false`, which means the prompt should not be displayed
-      // and navigation should occur.
-      if (typeof when === "function") {
-        if (!when(location, tx.location, tx.action)) {
-          // Use "noReset" to ensure that `resetConfirmation()` is not executed,
-          // which would cause an infinite loop when attempting to navigate
-          // with the forward and back buttons in the browser.
-          resolve("noReset");
+        // Go ahead and resolve the promise when the `when` function
+        // returns `false`, which means the prompt should not be displayed
+        // and navigation should occur.
+        if (typeof when === "function") {
+          const shouldPrompt = await when(tx.location, tx.action);
+          if (!shouldPrompt) {
+            resolve(true);
+          }
         }
-      }
-    });
+      });
 
-    return promise.then(
-      () => {
-        setResolve?.(true);
-        setConfirm({ ...confirm, isActive: false });
-        return true;
-      },
-      () => {
-        setConfirm({ ...confirm, isActive: false });
-        setResolve?.(false);
-        return false;
-      }
-    );
-  };
+      return promise.then(
+        () => {
+          setResolve?.(true);
+          setConfirm({ ...confirm, isActive: false });
+          return true;
+        },
+        () => {
+          setConfirm({ ...confirm, isActive: false });
+          setResolve?.(false);
+          return false;
+        }
+      );
+    },
+    [confirm, setResolve, when]
+  );
 
   return {
     ...confirm,
