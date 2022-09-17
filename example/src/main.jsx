@@ -1,8 +1,8 @@
-import "react-app-polyfill/ie11";
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
-import ReactRouterPrompt from "../dist";
+import ReactRouterPrompt from "../../src";
+
 import { ErrorBoundary } from "react-error-boundary";
 
 import { Routes, Route, NavLink, BrowserRouter } from "react-router-dom";
@@ -52,10 +52,12 @@ const Form = () => {
         <ReactRouterPrompt when={input.length >= 1}>
           {({ isActive, onConfirm, onCancel }) =>
             isActive && (
-              <div>
-                <p>Do you really want to leave?</p>
-                <button onClick={onCancel}>Cancel</button>
-                <button onClick={onConfirm}>Ok</button>
+              <div className="lightbox">
+                <div className="container">
+                  <p>Do you really want to leave?</p>
+                  <button onClick={onCancel}>Cancel</button>
+                  <button onClick={onConfirm}>Ok</button>
+                </div>
               </div>
             )
           }
@@ -76,11 +78,12 @@ const Form = () => {
   );
 };
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
