@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
+import { ConfirmContext } from "../ConfirmContext";
 
 const noop = () => {
   /*No Operation*/
@@ -6,14 +7,12 @@ const noop = () => {
 
 const initialConfirmState = {
   isActive: false,
-  hasConfirmed: false,
   proceed: noop,
   cancel: noop,
 };
 
 declare interface InitialStateType {
   isActive: boolean;
-  hasConfirmed: boolean;
   proceed: (value: unknown) => void;
   cancel: (value: unknown) => void;
 }
@@ -25,6 +24,7 @@ declare interface ConfirmLeaveReturnType extends InitialStateType {
 
 const useConfirm = (): ConfirmLeaveReturnType => {
   const [confirm, setConfirm] = useState<InitialStateType>(initialConfirmState);
+  const { setResolve } = useContext(ConfirmContext) || {};
 
   useEffect(() => {
     if (confirm.isActive) {
@@ -38,7 +38,11 @@ const useConfirm = (): ConfirmLeaveReturnType => {
     };
   }, [confirm]);
 
-  const onConfirm = useCallback(() => {
+  const resetConfirmation = useCallback(() => {
+    setConfirm(initialConfirmState);
+  }, []);
+
+  const onConfirm = async (): Promise<boolean> => {
     const promise = new Promise((resolve, reject) => {
       setConfirm((prevState: InitialStateType) => ({
         ...prevState,
@@ -50,19 +54,17 @@ const useConfirm = (): ConfirmLeaveReturnType => {
 
     return promise.then(
       () => {
-        setConfirm({ ...confirm, isActive: false, hasConfirmed: true });
+        setResolve?.(true);
+        setConfirm({ ...confirm, isActive: false });
         return true;
       },
       () => {
         setConfirm({ ...confirm, isActive: false });
+        setResolve?.(false);
         return false;
       }
     );
-  }, [confirm]);
-
-  const resetConfirmation = useCallback(() => {
-    setConfirm(initialConfirmState);
-  }, []);
+  };
 
   return {
     ...confirm,
