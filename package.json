@@ -1,6 +1,6 @@
 {
   "name": "react-router-prompt",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "React Router Navigation Prompt for v6",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -24,10 +24,9 @@
     "start": "tsdx watch",
     "build": "yarn clean && tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
+    "lint": "tsdx lint src",
     "size": "size-limit",
-    "prepublishOnly": "yarn build",
-    "example": "cd example && yarn start"
+    "prepublishOnly": "yarn build"
   },
   "husky": {
     "hooks": {
