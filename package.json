@@ -51,7 +51,8 @@
   },
   "peerDependencies": {
     "react": ">=16.8",
-    "react-router": ">=6.x"
+    "react-router": ">=6.x",
+    "react-router-dom": ">=6.x"
   },
   "files": [
     "dist",
