@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import ReactRouterPrompt from "../src";
+import {describe, it} from 'vitest'
 
 describe("it", () => {
   it("renders without crashing", () => {
