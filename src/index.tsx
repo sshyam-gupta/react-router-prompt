@@ -1,17 +1,16 @@
-import React, { useCallback, useContext } from "react";
+import React from "react"
+import { unstable_BlockerFunction as BlockerFunction } from "react-router-dom"
 
-import useConfirm from "./hooks/use-confirm";
-import useBlocker from "./hooks/use-blocker";
-import ConfirmContextProvider, { ConfirmContext } from "./ConfirmContext";
+import useConfirm from "./hooks/use-confirm"
 
 type ReactRouterPromptProps = {
-  when: boolean;
+  when: boolean | BlockerFunction
   children: (data: {
-    isActive: boolean;
-    onCancel: (value: unknown) => void;
-    onConfirm: (value: unknown) => void;
-  }) => React.ReactNode;
-};
+    isActive: boolean
+    onCancel(): void
+    onConfirm(): void
+  }) => React.ReactNode
+}
 
 /**
  * A replacement component for the react-router `Prompt`.
@@ -31,48 +30,29 @@ type ReactRouterPromptProps = {
  * </ReactRouterPrompt>
  */
 
-const ReactRouterPrompt: React.FC<ReactRouterPromptProps> = ({
-  when,
-  children,
-}) => {
-  const {
-    onConfirm,
-    resetConfirmation,
-    isActive,
-    proceed,
-    cancel,
-  } = useConfirm();
-  const { resolve } = useContext(ConfirmContext) || {};
-  const blocker = useCallback(
-    // @ts-ignore
-    async tx => {
-      if (await onConfirm()) {
-        resetConfirmation();
-        tx.retry();
-      }
-    },
-    [resetConfirmation, onConfirm]
-  );
+function ReactRouterPrompt({ when, children }: ReactRouterPromptProps) {
+  const { isActive, onConfirm, resetConfirmation } = useConfirm(when)
 
-  useBlocker(blocker, when && !resolve);
+  if (isActive) {
+    return (
+      <div>
+        {children({
+          isActive: true,
+          onConfirm,
+          onCancel: resetConfirmation,
+        })}
+      </div>
+    )
+  }
+  return null
+}
 
-  return (
-    <div>
-      {children({
-        isActive,
-        onConfirm: proceed,
-        onCancel: cancel,
-      })}
-    </div>
-  );
-};
+// function Root({ when, children }: ReactRouterPromptProps) {
+//   return (
+//     <ConfirmContextProvider>
+//       <ReactRouterPrompt when={when}>{children}</ReactRouterPrompt>
+//     </ConfirmContextProvider>
+//   )
+// }
 
-const Main: React.FC<ReactRouterPromptProps> = props => {
-  return (
-    <ConfirmContextProvider>
-      <ReactRouterPrompt {...props} />
-    </ConfirmContextProvider>
-  );
-};
-
-export default Main;
+export default ReactRouterPrompt

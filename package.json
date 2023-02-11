@@ -1,9 +1,19 @@
 {
   "name": "react-router-prompt",
-  "version": "0.2.2",
+  "version": "0.4.0",
   "description": "React Router Navigation Prompt for v6",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/react-router-prompt.umd.cjs",
+  "module": "./dist/react-router-prompt.js",
+  "exports": {
+    ".": {
+      "import": "./dist/react-router-prompt.js",
+      "require": "./dist/react-router-prompt.umd.cjs"
+    }
+  },
   "author": "Shyam Gupta (shyamm@outlook.com)",
   "license": "MIT",
   "private": false,
@@ -20,50 +30,64 @@
     "router"
   ],
   "scripts": {
-    "clean": "rimraf dist",
-    "start": "tsdx watch",
-    "build": "yarn clean && tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint src",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier \"src/**/*.{js,jsx,ts,tsx,css,scss}\" --write",
+    "compile": "tsc",
+    "preview": "vite preview",
+    "test": "vitest",
     "size": "size-limit",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "prepare": "husky install",
+    "coverage": "vitest run --coverage"
   },
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint src"
     }
   },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^8.1.0",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "esbuild": "^0.14.49",
+    "@size-limit/preset-small-lib": "^8.1.2",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "@vitejs/plugin-react-swc": "^3.1.0",
+    "eslint": "^8.34.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "happy-dom": "^8.2.6",
     "history": "^5.3.0",
-    "husky": "^8.0.1",
+    "husky": "^8.0.3",
+    "path": "^0.12.7",
+    "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-error-boundary": "^3.1.4",
-    "react-router-dom": "^6.4.1",
-    "rimraf": "^3.0.2",
-    "size-limit": "^8.1.0",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "react-router-dom": "^6.8.1",
+    "size-limit": "^8.1.2",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vite-plugin-dts": "^1.7.2",
+    "vite-tsconfig-paths": "^4.0.5",
+    "vitest": "^0.28.4"
   },
   "peerDependencies": {
     "react": ">=16.8",
     "react-router": ">=6.x",
-    "react-router-dom": ">=6.x"
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": false,
-    "trailingComma": "es5"
+    "react-router-dom": ">=6.7"
   },
   "size-limit": [
     {
@@ -74,6 +98,5 @@
       "path": "dist/react-router-prompt.esm.js",
       "limit": "10 KB"
     }
-  ],
-  "dependencies": {}
+  ]
 }
