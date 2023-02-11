@@ -34,3 +34,4 @@ public/script.js.map
 # OS
 .DS_Store
 tsconfig.tsbuildinfo
+coverage/
