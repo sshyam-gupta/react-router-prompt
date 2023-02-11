@@ -17,7 +17,7 @@
 
 ### Prerequisite
 
-React-router-dom >= 6.7 and can be used only with data routers
+**React-router-dom >= 6.7** and can be used only with [**data routers**](https://reactrouter.com/en/6.8.1/routers/picking-a-router#using-v64-data-apis)
 
 ```bash
 pnpm add react-router-prompt
