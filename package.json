@@ -1,6 +1,6 @@
 {
   "name": "react-router-prompt",
-  "version": "0.4.0",
+  "version": "0.4.0-beta-1",
   "description": "React Router Navigation Prompt for v6",
   "type": "module",
   "files": [
@@ -87,17 +87,17 @@
   },
   "peerDependencies": {
     "react": ">=16.8",
-    "react-router": ">=6.x",
+    "react-router": ">=6.7",
     "react-router-dom": ">=6.7"
   },
   "size-limit": [
     {
-      "path": "dist/react-router-prompt.cjs.production.min.js",
-      "limit": "10 KB"
+      "path": "dist/react-router-prompt.js",
+      "limit": "5 KB"
     },
     {
-      "path": "dist/react-router-prompt.esm.js",
-      "limit": "10 KB"
+      "path": "dist/react-router-prompt.umd.cjs",
+      "limit": "8 KB"
     }
   ]
 }

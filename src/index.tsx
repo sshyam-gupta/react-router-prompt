@@ -47,12 +47,4 @@ function ReactRouterPrompt({ when, children }: ReactRouterPromptProps) {
   return null
 }
 
-// function Root({ when, children }: ReactRouterPromptProps) {
-//   return (
-//     <ConfirmContextProvider>
-//       <ReactRouterPrompt when={when}>{children}</ReactRouterPrompt>
-//     </ConfirmContextProvider>
-//   )
-// }
-
 export default ReactRouterPrompt

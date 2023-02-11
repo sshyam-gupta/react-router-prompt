@@ -1,4 +1,4 @@
-import * as React from "react"
+import { useCallback, useEffect } from "react"
 import {
   useBeforeUnload,
   unstable_useBlocker as useBlocker,
@@ -19,7 +19,7 @@ import {
 // the tradeoffs are right for your users.
 function usePrompt(when: boolean | BlockerFunction): Blocker {
   const blocker = useBlocker(when)
-  React.useEffect(() => {
+  useEffect(() => {
     // Reset if when is updated to false
     if (blocker.state === "blocked" && !when) {
       blocker.reset()
@@ -27,7 +27,7 @@ function usePrompt(when: boolean | BlockerFunction): Blocker {
   }, [blocker, when])
 
   useBeforeUnload(
-    React.useCallback(
+    useCallback(
       (event) => {
         if (when) {
           event.preventDefault()
