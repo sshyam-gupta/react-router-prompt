@@ -9,7 +9,7 @@
 
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-router-prompt)](https://www.npmjs.com/package/react-router-prompt)
 
-## ✨ [Demo](https://codesandbox.io/s/react-router-prompt-example-zv3zt5?file=/src/App.js)
+## ✨ [Demo](https://codesandbox.io/s/react-router-prompt-example-react-router-6-7-y9ug7z?file=/src/App.js)
 
 ## 🏠 [Homepage](https://github.com/sshyam-gupta/react-router-prompt#readme)
 
