@@ -1,3 +1,30 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.cache
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
 # dev
 dist
 node_modules
@@ -7,15 +34,4 @@ public/script.js.map
 # OS
 .DS_Store
 tsconfig.tsbuildinfo
-
-/example/node_modules
-/example/build
-
-*.log
-.DS_Store
-node_modules
-.cache
-dist
-.parcel-cache
-
-example/.parcel-cache
+coverage/
