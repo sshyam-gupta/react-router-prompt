@@ -8,6 +8,7 @@
   ],
   "main": "./dist/react-router-prompt.umd.cjs",
   "module": "./dist/react-router-prompt.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/react-router-prompt.js",
