@@ -1,6 +1,6 @@
 {
   "name": "react-router-prompt",
-  "version": "0.5.1",
+  "version": "0.5.1-beta",
   "description": "React Router Navigation Prompt for v6",
   "type": "module",
   "files": [
@@ -48,10 +48,6 @@
     "hooks": {
       "pre-commit": "pnpm lint"
     }
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.1.2",
