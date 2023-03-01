@@ -18,7 +18,7 @@ import {
 // out of whack. You should test your own implementation thoroughly to make sure
 // the tradeoffs are right for your users.
 function usePrompt(when: boolean | BlockerFunction): Blocker {
-  const _when = typeof when === 'function'? when() : when;
+  const _when = useMemo(() => typeof when === 'function'? when() : when, [when]);
   const blocker = useBlocker(_when)
   useEffect(() => {
     // Reset if when is updated to false
