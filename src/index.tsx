@@ -21,7 +21,7 @@ type ReactRouterPromptProps = {
  *   {({isActive, onConfirm, onCancel}) => (
  *     <Modal show={isActive}>
  *       <div>
- *         <p>Do you really want to leave?</p>
+ *         <p>Do you really want tox leave?</p>
  *         <button onClick={onCancel}>Cancel</button>
  *         <button onClick={onConfirm}>Ok</button>
  *       </div>
@@ -32,6 +32,8 @@ type ReactRouterPromptProps = {
 
 function ReactRouterPrompt({ when, children }: ReactRouterPromptProps) {
   const { isActive, onConfirm, resetConfirmation } = useConfirm(when)
+
+  console.log(isActive)
 
   if (isActive) {
     return (

@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+patchedDependencies:
+  '@remix-run/router@1.3.2':
+    hash: sul2q25b7yrot3fzed7bjyqr7m
+    path: patches/@remix-run__router@1.3.2.patch
+
 devDependencies:
   '@size-limit/preset-small-lib':
     specifier: ^8.1.2
@@ -653,10 +658,11 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@remix-run/router@1.3.2:
+  /@remix-run/router@1.3.2(patch_hash=sul2q25b7yrot3fzed7bjyqr7m):
     resolution: {integrity: sha512-t54ONhl/h75X94SWsHGQ4G/ZrCEguKSRQr7DrjTciJXW0YU1QhlwYeycvK5JgkzlxmvrK7wq1NB/PLtHxoiDcA==}
     engines: {node: '>=14'}
     dev: true
+    patched: true
 
   /@rollup/pluginutils@5.0.2:
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
@@ -3052,7 +3058,7 @@ packages:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.3.2
+      '@remix-run/router': 1.3.2(patch_hash=sul2q25b7yrot3fzed7bjyqr7m)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-router: 6.8.1(react@18.2.0)
@@ -3064,7 +3070,7 @@ packages:
     peerDependencies:
       react: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.3.2
+      '@remix-run/router': 1.3.2(patch_hash=sul2q25b7yrot3fzed7bjyqr7m)
       react: 18.2.0
     dev: true
 
