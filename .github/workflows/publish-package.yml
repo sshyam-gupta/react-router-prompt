@@ -31,12 +31,12 @@ jobs:
 
       - name: Publish version
         if: steps.release.outputs.tag == ''
-        run: npm publish
+        run: pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Publish tagged version
         if: steps.release.outputs.tag != ''
-        run: npm publish --tag ${{ steps.release.outputs.tag }}
+        run: pnpm publish --tag ${{ steps.release.outputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
