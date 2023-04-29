@@ -23,13 +23,13 @@
 pnpm add react-router-prompt
 ```
 
-or with other package manager like npm
+or with other package manager like yarn
 
 ```bash
-npm install react-router-prompt
+yarn add react-router-prompt
 ```
 
-## Usage
+## Basic Usage
 
 ```jsx
 <ReactRouterPrompt when={isDirty}>
@@ -45,25 +45,27 @@ npm install react-router-prompt
 </ReactRouterPrompt>
 ```
 
-## Props
+### Props
 
-### `when` - `boolean` or `BlockerFunction`
+  1. `when`: `boolean` | `BlockerFunction`
 
-```ts
-BlockerFunction = (args: {
-    currentLocation: Location;
-    nextLocation: Location;
-    historyAction: HistoryAction;
-}) => boolean;
-```
+      ```ts
+      BlockerFunction = (args: {
+          currentLocation: Location;
+          nextLocation: Location;
+          historyAction: HistoryAction;
+      }) => boolean;
+      ```
+
+  2. `beforeConfirm()` : `Promise<unknown>` _(Optional)_
+
+  3. `beforeCancel()` : `Promise<unknown>` _(Optional)_
 
 ### Return values
 
- ```
-1. isActive: Boolean
-2. onConfirm(): void
-3. onCancel(): void
-```
+  1. `isActive`: `Boolean`
+  2. `onConfirm()`: `void`
+  3. `onCancel()`: `void`
 
 #### Note 🗒️
 

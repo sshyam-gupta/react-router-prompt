@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 import { unstable_BlockerFunction as BlockerFunction } from "react-router-dom"
 
 import useConfirm from "./hooks/use-confirm"
@@ -10,6 +10,8 @@ type ReactRouterPromptProps = {
     onCancel(): void
     onConfirm(): void
   }) => React.ReactNode
+  beforeCancel?: () => Promise<unknown>
+  beforeConfirm?: () => Promise<unknown>
 }
 
 /**
@@ -30,16 +32,31 @@ type ReactRouterPromptProps = {
  * </ReactRouterPrompt>
  */
 
-function ReactRouterPrompt({ when, children }: ReactRouterPromptProps) {
+function ReactRouterPrompt({
+  when,
+  children,
+  beforeCancel,
+  beforeConfirm,
+}: ReactRouterPromptProps) {
   const { isActive, onConfirm, resetConfirmation } = useConfirm(when)
+
+  const onConfirmAction = useCallback(async () => {
+    if (beforeConfirm) await beforeConfirm()
+    onConfirm()
+  }, [beforeConfirm, onConfirm])
+
+  const onResetAction = useCallback(async () => {
+    if (beforeCancel) await beforeCancel()
+    resetConfirmation()
+  }, [beforeCancel, resetConfirmation])
 
   if (isActive) {
     return (
       <div>
         {children({
           isActive: true,
-          onConfirm,
-          onCancel: resetConfirmation,
+          onConfirm: onConfirmAction,
+          onCancel: onResetAction,
         })}
       </div>
     )

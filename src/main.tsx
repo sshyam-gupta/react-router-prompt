@@ -17,6 +17,12 @@ function Home() {
   )
 }
 
+function delayPromise(ms = 5000) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
+
 function Form() {
   const [input, setInput] = useState("")
 
@@ -24,7 +30,18 @@ function Form() {
     <div>
       <h1>About</h1>
 
-      <ReactRouterPrompt when={input.length >= 1}>
+      <ReactRouterPrompt
+        when={input.length >= 1}
+        // beforeConfirm={() => delayPromise()}
+        beforeCancel={async () => {
+          await delayPromise()
+
+          await fetch("https://api.zippopotam.us/in/400072")
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log("error", error))
+        }}
+      >
         {({ isActive, onConfirm, onCancel }) =>
           isActive && (
             <div className="lightbox">
