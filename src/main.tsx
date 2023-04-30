@@ -17,7 +17,7 @@ function Home() {
   )
 }
 
-function delayPromise(ms = 5000) {
+function delayPromise(ms = 1000) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms)
   })
@@ -32,15 +32,14 @@ function Form() {
 
       <ReactRouterPrompt
         when={input.length >= 1}
-        // beforeConfirm={() => delayPromise()}
-        beforeCancel={async () => {
+        beforeConfirm={async () => {
           await delayPromise()
-
           await fetch("https://api.zippopotam.us/in/400072")
             .then((response) => response.text())
             .then((result) => console.log(result))
             .catch((error) => console.log("error", error))
         }}
+        beforeCancel={() => delayPromise()}
       >
         {({ isActive, onConfirm, onCancel }) =>
           isActive && (
