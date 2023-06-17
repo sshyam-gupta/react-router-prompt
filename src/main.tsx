@@ -25,13 +25,12 @@ function delayPromise(ms = 1000) {
 
 function Form() {
   const [input, setInput] = useState("")
-
   return (
     <div>
       <h1>About</h1>
 
       <ReactRouterPrompt
-        when={input.length >= 1}
+        when={() => input.length >= 1}
         beforeConfirm={async () => {
           await delayPromise()
           await fetch("https://api.zippopotam.us/in/400072")
