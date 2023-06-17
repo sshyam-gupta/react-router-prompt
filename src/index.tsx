@@ -2,6 +2,7 @@ import React, { useCallback } from "react"
 import { unstable_BlockerFunction as BlockerFunction } from "react-router-dom"
 
 import useConfirm from "./hooks/use-confirm"
+import usePrompt from "./hooks/use-prompt"
 
 type ReactRouterPromptProps = {
   when: boolean | BlockerFunction
@@ -65,3 +66,4 @@ function ReactRouterPrompt({
 }
 
 export default ReactRouterPrompt
+export { useConfirm, usePrompt }

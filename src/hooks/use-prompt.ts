@@ -20,7 +20,6 @@ import {
 function usePrompt(when: boolean | BlockerFunction): Blocker {
   const blocker = useBlocker(when)
   useEffect(() => {
-    // Reset if when is updated to false
     if (blocker.state === "blocked" && !when) {
       blocker.reset()
     }
@@ -29,7 +28,11 @@ function usePrompt(when: boolean | BlockerFunction): Blocker {
   useBeforeUnload(
     useCallback(
       (event) => {
-        if (when) {
+        if (
+          (typeof when === "boolean" && when === true) ||
+          // @ts-ignore Reload case -- No location present
+          (typeof when === "function" && when())
+        ) {
           event.preventDefault()
           // eslint-disable-next-line no-param-reassign
           event.returnValue = "Changes that you made may not be saved."
