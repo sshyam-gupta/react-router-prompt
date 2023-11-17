@@ -73,7 +73,7 @@
     "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1",
+    "react-router-dom": "^6.19.0",
     "size-limit": "^8.1.2",
     "tslib": "^2.5.0",
     "typescript": "^5.0.0",
@@ -85,7 +85,7 @@
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8",
-    "react-router-dom": ">=6.7"
+    "react-router-dom": ">=6.19"
   },
   "size-limit": [
     {
