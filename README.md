@@ -74,6 +74,8 @@ Should be used within [data routers](https://reactrouter.com/en/6.8.1/routers/pi
 
 For react-router-support `(v6 - v6.2.x)` please install v0.3.0
 
+For react-router support `(v6.3.x - v6.18.x)` please install v0.5.4
+
 _Skipped support in middle due to breaking changes on react-router apis_
 
 ```sh
