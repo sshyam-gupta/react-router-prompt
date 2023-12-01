@@ -24,8 +24,5 @@ export default defineConfig({
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
     },
-  },
-  test: {
-    environment: "happy-dom",
-  },
+  }
 });
