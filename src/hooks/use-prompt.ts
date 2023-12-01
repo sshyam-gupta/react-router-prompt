@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react"
 import {
   useBeforeUnload,
-  unstable_useBlocker as useBlocker,
+  useBlocker,
   unstable_Blocker as Blocker,
   unstable_BlockerFunction as BlockerFunction,
 } from "react-router-dom"
