@@ -57,7 +57,7 @@
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "@vitejs/plugin-react-swc": "^3.1.0",
-    "@vitest/coverage-c8": "^0.30.0",
+    "@vitest/coverage-c8": "^0.33.0",
     "eslint": "^8.34.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -81,7 +81,7 @@
     "vite": "^4.1.1",
     "vite-plugin-dts": "^2.0.0",
     "vite-tsconfig-paths": "^4.0.5",
-    "vitest": "^0.30.0"
+    "vitest": "^0.34.0"
   },
   "peerDependencies": {
     "react": ">=16.8",
