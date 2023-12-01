@@ -15,7 +15,7 @@ jobs:
       - name: Use pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Use Size limit
         uses: andresz1/size-limit-action@v1
         with:
