@@ -36,13 +36,9 @@
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
     "format": "prettier \"src/**/*.{js,jsx,ts,tsx,css,scss}\" --write",
-    "compile": "tsc",
-    "preview": "vite preview",
-    "test": "vitest",
     "size": "size-limit",
     "prepublishOnly": "yarn build",
-    "prepare": "husky install",
-    "coverage": "vitest run --coverage"
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -56,7 +52,6 @@
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "@vitejs/plugin-react-swc": "^3.1.0",
-    "@vitest/coverage-c8": "^0.30.0",
     "eslint": "^8.34.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -66,7 +61,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "happy-dom": "^9.0.0",
     "history": "^5.3.0",
     "husky": "^8.0.3",
     "path": "^0.12.7",
@@ -75,12 +69,10 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.19.0",
     "size-limit": "^8.1.2",
-    "tslib": "^2.5.0",
     "typescript": "^5.0.0",
     "vite": "^4.1.1",
     "vite-plugin-dts": "^2.0.0",
-    "vite-tsconfig-paths": "^4.0.5",
-    "vitest": "^0.30.0"
+    "vite-tsconfig-paths": "^4.0.5"
   },
   "peerDependencies": {
     "react": ">=16.8",
@@ -90,11 +82,11 @@
   "size-limit": [
     {
       "path": "dist/react-router-prompt.js",
-      "limit": "5 KB"
+      "limit": "2 KB"
     },
     {
       "path": "dist/react-router-prompt.umd.cjs",
-      "limit": "8 KB"
+      "limit": "2 KB"
     }
   ]
 }
