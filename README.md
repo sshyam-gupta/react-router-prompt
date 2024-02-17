@@ -2,6 +2,8 @@
 
 > A component for the react-router 6 `Prompt`. Allows to create more flexible dialogs.
 
+**This is updated by Aptuitiv to not wrap the content in a `div` tag. The `div` tag was causing some issues with certain CSS that depends on grid layouts.**
+
 [![npm version](https://img.shields.io/npm/v/react-router-prompt.svg)](https://www.npmjs.com/package/react-router-prompt)
 
 [![npm downloads](https://img.shields.io/npm/dw/react-router-prompt.svg)](https://www.npmjs.com/package/react-router-prompt)
