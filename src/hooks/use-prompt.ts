@@ -3,7 +3,7 @@ import {
   useBeforeUnload,
   useBlocker,
   Blocker,
-  BlockerFunction as BlockerFunction,
+  BlockerFunction,
 } from "react-router-dom"
 
 // You can abstract `useBlocker` to use the browser's `window.confirm` dialog to
