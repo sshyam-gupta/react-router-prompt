@@ -1,4 +1,4 @@
-import { unstable_BlockerFunction as BlockerFunction } from "react-router-dom"
+import { BlockerFunction } from "react-router-dom"
 import usePrompt from "./use-prompt"
 
 declare interface InitialStateType {

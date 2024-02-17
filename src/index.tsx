@@ -1,5 +1,5 @@
 import React, { useCallback } from "react"
-import { unstable_BlockerFunction as BlockerFunction } from "react-router-dom"
+import { BlockerFunction as BlockerFunction } from "react-router-dom"
 
 import useConfirm from "./hooks/use-confirm"
 import usePrompt from "./hooks/use-prompt"
@@ -53,13 +53,13 @@ function ReactRouterPrompt({
 
   if (isActive) {
     return (
-      <div>
+      <>
         {children({
           isActive: true,
           onConfirm: onConfirmAction,
           onCancel: onResetAction,
         })}
-      </div>
+      </>
     )
   }
   return null
