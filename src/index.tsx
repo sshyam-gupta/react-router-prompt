@@ -8,8 +8,8 @@ type ReactRouterPromptProps = {
   when: boolean | BlockerFunction
   children: (data: {
     isActive: boolean
-    onCancel(): void
-    onConfirm(): void
+    onCancel: () => void
+    onConfirm: () => void
   }) => React.ReactNode
   beforeCancel?: () => Promise<unknown>
   beforeConfirm?: () => Promise<unknown>
