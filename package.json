@@ -1,5 +1,5 @@
 {
-  "version": "0.7.0",
+  "version": "0.7.1-beta-2",
   "name": "react-router-prompt",
   "description": "React Router Navigation Prompt for v6",
   "type": "module",
