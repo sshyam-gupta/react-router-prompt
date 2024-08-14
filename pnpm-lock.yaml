@@ -82,7 +82,7 @@ devDependencies:
     version: 5.4.0
   vite-plugin-dts:
     specifier: ^4.0.0
-    version: 4.0.2(typescript@5.5.4)(vite@5.4.0)
+    version: 4.0.3(typescript@5.5.4)(vite@5.4.0)
   vite-tsconfig-paths:
     specifier: ^5.0.0
     version: 5.0.1(typescript@5.5.4)(vite@5.4.0)
@@ -3165,7 +3165,7 @@ packages:
     resolution: {integrity: sha512-oKWePCxqpd6FlLvGV1VU0x7bkPmmCNolxzjMf4NczoDnQcIWrAF+cPtZn5i6n+RfD2d9i0tzpKnG6Yk168yIyw==}
     hasBin: true
     dependencies:
-      is-core-module: 2.13.1
+      is-core-module: 2.15.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
@@ -3619,8 +3619,8 @@ packages:
       inherits: 2.0.3
     dev: true
 
-  /vite-plugin-dts@4.0.2(typescript@5.5.4)(vite@5.4.0):
-    resolution: {integrity: sha512-Ni3EPG8yeLc5ivEzT4szreJ0rXpEQgvdYq3PaZ7OMoHc8uET4/HRUfzVPejJaUAojbxsKgaZbp6Zgm41sxb86Q==}
+  /vite-plugin-dts@4.0.3(typescript@5.5.4)(vite@5.4.0):
+    resolution: {integrity: sha512-+xnTsaONwU2kV6zhRjtbRJSGN41uFR/whqmcb4k4fftLFDJElxthp0PP5Fq8gMeM9ytWMt1yk5gGgekLREWYQQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       typescript: '*'
