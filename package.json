@@ -75,11 +75,11 @@
   "size-limit": [
     {
       "path": "dist/react-router-prompt.js",
-      "limit": "1.2 KB"
+      "limit": "600 B"
     },
     {
       "path": "dist/react-router-prompt.umd.cjs",
-      "limit": "1.2 KB"
+      "limit": "800 B"
     }
   ]
 }
