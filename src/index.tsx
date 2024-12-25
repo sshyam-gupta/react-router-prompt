@@ -65,5 +65,6 @@ function ReactRouterPrompt({
   return null
 }
 
-export default ReactRouterPrompt
 export { useConfirm, usePrompt }
+
+export default ReactRouterPrompt
