@@ -1,6 +1,6 @@
 # react-router-prompt 🚨
 
-> A component for the react-router 6/7 `Prompt`. Allows to create more flexible dialogs.
+> A component for the react-router-dom 6 / react-router 7 `Prompt`. Allows to create more flexible dialogs.
 
 Please follow [Note section](https://github.com/sshyam-gupta/react-router-prompt#note) for more details on react-router support
 
@@ -18,7 +18,7 @@ Please follow [Note section](https://github.com/sshyam-gupta/react-router-prompt
 
 ### Prerequisite
 
-**React-router-dom >= 7** or **React-router-dom >= 7** and shall be ideally used with [**data routers**](https://reactrouter.com/6.28.1/routers/picking-a-router#using-v64-data-apis)
+**React-router-dom >= 7** and shall be ideally used with [**data routers**](https://reactrouter.com/6.28.1/routers/picking-a-router#using-v64-data-apis)
 
 ```bash
 pnpm add react-router-prompt
@@ -72,7 +72,7 @@ yarn add react-router-prompt
 
 This version works with react-router-dom >=v7 or react-router >=v7 and shall be ideally used with [**data routers**](https://reactrouter.com/6.28.1/routers/picking-a-router#using-v64-data-apis)
 
-- For react-router / react-router-dom support `(v7)` please install `v0.8.x`
+- For react-router support `(v7)` please install `v0.8.x`
 
 - For react-router-dom support `(v6.19.x - v6.28.1)` please install `v0.7.x`
 
