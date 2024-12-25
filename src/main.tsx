@@ -1,11 +1,6 @@
 import React, { useState } from "react"
 import ReactDOM from "react-dom/client"
-import {
-  createBrowserRouter,
-  RouterProvider,
-  NavLink,
-  Outlet,
-} from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Outlet, Link } from "react-router"
 
 import ReactRouterPrompt from "."
 
@@ -32,7 +27,7 @@ function Form() {
       <ReactRouterPrompt
         when={() => input.length >= 1}
         beforeConfirm={async () => {
-          await delayPromise()
+          // await delayPromise()
           await fetch("https://api.zippopotam.us/in/400072")
             .then((response) => response.text())
             .then((result) => console.log(result))
@@ -75,9 +70,9 @@ function Root() {
   return (
     <div>
       <nav>
-        <NavLink to="/">Home</NavLink>
+        <Link to="/">Home</Link>
         &nbsp;&nbsp;&nbsp;
-        <NavLink to="/promptable">Prompt</NavLink>
+        <Link to="/promptable">Prompt</Link>
       </nav>
       <Outlet />
     </div>
