@@ -30,7 +30,7 @@ function usePrompt(when: boolean | BlockerFunction): Blocker {
       (event) => {
         if (
           (typeof when === "boolean" && when === true) ||
-          // @ts-ignore Reload case -- No location present
+          // @ts-expect-error Reload case -- No location present
           (typeof when === "function" && when())
         ) {
           event.preventDefault()

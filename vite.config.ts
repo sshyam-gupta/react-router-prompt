@@ -22,7 +22,15 @@ export default defineConfig({
       fileName: "react-router-prompt",
     },
     rollupOptions: {
-      external: [...Object.keys(packageJson.peerDependencies)],
+      external: [...Object.keys(packageJson.peerDependencies), 'react/jsx-runtime'],
+      output: {
+        globals: {
+          'react': 'react',
+          'react-dom': 'ReactDOM',
+          'react-router-dom': 'reactRouterDom',
+          'react/jsx-runtime': 'react/jsx-runtime',
+        },
+      }
     },
   }
 });
