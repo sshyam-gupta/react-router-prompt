@@ -67,7 +67,7 @@ importers:
         version: 19.0.0(react@19.0.0)
       react-router-dom:
         specifier: ^6.22.1
-        version: 6.26.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        version: 6.28.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       size-limit:
         specifier: ^11.0.2
         version: 11.1.4
@@ -464,8 +464,8 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@remix-run/router@1.19.0':
-    resolution: {integrity: sha512-zDICCLKEwbVYTS6TjYaWtHXxkdoUvD/QXvyVZjGCsWz5vyH7aFeONlPffPdW+Y/t6KT0MgXb2Mfjun9YpWN1dA==}
+  '@remix-run/router@1.21.0':
+    resolution: {integrity: sha512-xfSkCAchbdG5PnbrKqFWwia4Bi61nH+wm8wLEqfHDyp7Y3dZzgqS2itV8i4gAq9pC2HsTpwyBC6Ds8VHZ96JlA==}
     engines: {node: '>=14.0.0'}
 
   '@rollup/pluginutils@5.1.4':
@@ -1769,15 +1769,15 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  react-router-dom@6.26.0:
-    resolution: {integrity: sha512-RRGUIiDtLrkX3uYcFiCIxKFWMcWQGMojpYZfcstc63A1+sSnVgILGIm9gNUA6na3Fm1QuPGSBQH2EMbAZOnMsQ==}
+  react-router-dom@6.28.1:
+    resolution: {integrity: sha512-YraE27C/RdjcZwl5UCqF/ffXnZDxpJdk9Q6jw38SZHjXs7NNdpViq2l2c7fO7+4uWaEfcwfGCv3RSg4e1By/fQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
 
-  react-router@6.26.0:
-    resolution: {integrity: sha512-wVQq0/iFYd3iZ9H2l3N3k4PL8EEHcb0XlU2Na8nEwmiXgIUElEH6gaJDtUQxJ+JFzmIXaQjfdpcGWaM6IoQGxg==}
+  react-router@6.28.1:
+    resolution: {integrity: sha512-2omQTA3rkMljmrvvo6WtewGdVh45SpL9hGiCI9uUrwGGfNFDIvGK4gYJsKlJoNVi6AQZcopSCballL+QGOm7fA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
@@ -2392,7 +2392,7 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@remix-run/router@1.19.0': {}
+  '@remix-run/router@1.21.0': {}
 
   '@rollup/pluginutils@5.1.4(rollup@4.29.1)':
     dependencies:
@@ -3849,16 +3849,16 @@ snapshots:
 
   react-is@16.13.1: {}
 
-  react-router-dom@6.26.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  react-router-dom@6.28.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
-      '@remix-run/router': 1.19.0
+      '@remix-run/router': 1.21.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
-      react-router: 6.26.0(react@19.0.0)
+      react-router: 6.28.1(react@19.0.0)
 
-  react-router@6.26.0(react@19.0.0):
+  react-router@6.28.1(react@19.0.0):
     dependencies:
-      '@remix-run/router': 1.19.0
+      '@remix-run/router': 1.21.0
       react: 19.0.0
 
   react@19.0.0: {}
