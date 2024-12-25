@@ -70,7 +70,7 @@
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8",
-    "react-router-dom": ">=6.19"
+    "react-router-dom": ">=6.19 <7"
   },
   "size-limit": [
     {
