@@ -1,14 +1,20 @@
-import { BlockerFunction } from "react-router-dom"
+import { BlockerFunction, Location } from "react-router-dom"
 import usePrompt from "./use-prompt"
+import { useState } from "react"
 
 declare interface InitialStateType {
   isActive: boolean
   onConfirm(): void
   resetConfirmation(): void
+  nextLocation?: Location
 }
 
 const useConfirm = (when: boolean | BlockerFunction): InitialStateType => {
-  const blocker = usePrompt(when)
+  const [nextLocation, setNextLocation] = useState<Location | null>(null)
+
+  const blocker = usePrompt(when, (location) => {
+    setNextLocation(location)
+  })
 
   const resetConfirmation = () => {
     if (blocker.state === "blocked") blocker.reset()
@@ -22,6 +28,7 @@ const useConfirm = (when: boolean | BlockerFunction): InitialStateType => {
     isActive: blocker.state === "blocked",
     onConfirm,
     resetConfirmation,
+    nextLocation: nextLocation || undefined,
   }
 }
 
