@@ -31,7 +31,7 @@ jobs:
 
       - name: Publish version
         if: steps.release.outputs.tag == ''
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
