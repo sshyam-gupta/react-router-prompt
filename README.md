@@ -56,15 +56,16 @@ yarn add react-router-prompt
    }) => boolean
    ```
 
-2. `beforeConfirm()` : `Promise<unknown>` _(Optional)_
+2. `beforeConfirm(nextLocation?: Location)` : `Promise<unknown>` _(Optional)_
 
 3. `beforeCancel()` : `Promise<unknown>` _(Optional)_
 
 ### Return values
 
 1. `isActive`: `Boolean`
-2. `onConfirm()`: `void`
+2. `onConfirm(nextLocation?: Location)`: `void`
 3. `onCancel()`: `void`
+4. `nextLocation`: `Location | undefined`
 
 #### Note 🗒️
 
