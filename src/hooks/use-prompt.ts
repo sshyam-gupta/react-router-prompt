@@ -4,6 +4,7 @@ import {
   useBlocker,
   Blocker,
   BlockerFunction,
+  Location,
 } from "react-router"
 
 // You can abstract `useBlocker` to use the browser's `window.confirm` dialog to
@@ -17,13 +18,19 @@ import {
 // or the app may stay on the correct page but the browser's history stack gets
 // out of whack. You should test your own implementation thoroughly to make sure
 // the tradeoffs are right for your users.
-function usePrompt(when: boolean | BlockerFunction): Blocker {
+function usePrompt(
+  when: boolean | BlockerFunction,
+  onNavigate?: (nextLocation: Location) => void,
+): Blocker {
   const blocker = useBlocker(when)
   useEffect(() => {
+    if (blocker.state === "blocked" && blocker.location && onNavigate) {
+      onNavigate(blocker.location)
+    }
     if (blocker.state === "blocked" && !when) {
       blocker.reset()
     }
-  }, [blocker, when])
+  }, [blocker, when, onNavigate])
 
   useBeforeUnload(
     useCallback(
