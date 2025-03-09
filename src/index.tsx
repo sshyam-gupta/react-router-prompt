@@ -1,5 +1,5 @@
 import React, { useCallback } from "react"
-import { BlockerFunction, Location } from "react-router-dom"
+import { BlockerFunction, Location } from "react-router"
 
 import useConfirm from "./hooks/use-confirm"
 import usePrompt from "./hooks/use-prompt"

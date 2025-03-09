@@ -1,10 +1,10 @@
-import { resolve } from "path";
-import dts from "vite-plugin-dts";
-import tsConfigPaths from "vite-tsconfig-paths";
-import * as packageJson from "./package.json";
+import { resolve } from "path"
+import dts from "vite-plugin-dts"
+import tsConfigPaths from "vite-tsconfig-paths"
+import * as packageJson from "./package.json"
 
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react-swc"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,15 +22,19 @@ export default defineConfig({
       fileName: "react-router-prompt",
     },
     rollupOptions: {
-      external: [...Object.keys(packageJson.peerDependencies), 'react/jsx-runtime'],
+      external: [
+        ...Object.keys(packageJson.peerDependencies),
+        "react/jsx-runtime"
+      ],
       output: {
+        exports: "named",
         globals: {
-          'react': 'react',
-          'react-dom': 'ReactDOM',
-          'react-router-dom': 'reactRouterDom',
-          'react/jsx-runtime': 'react/jsx-runtime',
+          react: "react",
+          "react-dom": "ReactDOM",
+          "react-router": "reactRouter",
+          "react/jsx-runtime": "react/jsx-runtime",
         },
-      }
+      },
     },
-  }
-});
+  },
+})

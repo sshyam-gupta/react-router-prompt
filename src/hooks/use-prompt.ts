@@ -5,7 +5,7 @@ import {
   Blocker,
   BlockerFunction,
   Location,
-} from "react-router-dom"
+} from "react-router"
 
 // You can abstract `useBlocker` to use the browser's `window.confirm` dialog to
 // determine whether or not the user should navigate within the current origin.

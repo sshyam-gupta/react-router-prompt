@@ -1,4 +1,4 @@
-import { BlockerFunction, Location } from "react-router-dom"
+import { BlockerFunction, Location } from "react-router"
 import usePrompt from "./use-prompt"
 import { useState } from "react"
 
