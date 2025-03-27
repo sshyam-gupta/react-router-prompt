@@ -1,14 +1,31 @@
-# react-router-prompt 🚨
+<h1 align="center">react-router-prompt 🚨</h1>
 
-> A component for the react-router-dom 6 / react-router 7 `Prompt`. Allows to create more flexible dialogs.
+<p align="center">
+  <a href="https://www.npmjs.com/package/react-router-prompt">
+    <img alt="npm version" src="https://img.shields.io/npm/v/react-router-prompt.svg">
+  </a>
+  &nbsp;
+  <a href="https://www.npmjs.com/package/react-router-prompt">
+    <img alt="npm weekly downloads" src="https://img.shields.io/npm/dw/react-router-prompt.svg">
+  </a>
+  &nbsp;
+  <a href="https://www.npmjs.com/package/react-router-prompt">
+    <img alt="total downloads" src="https://img.shields.io/npm/dt/react-router-prompt.svg">
+  </a>
+  &nbsp;
+  <a href="https://www.npmjs.com/package/react-router-prompt">
+    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/react-router-prompt">
+  </a>
+</p>
+
+
+<p align="center">
+  A Component for the react-router-dom 6 / react-router 7 <b>Prompt</b>. Allows to create more flexible dialogs.
+</p>
+
+<hr />
 
 Please follow [Note section](https://github.com/sshyam-gupta/react-router-prompt#note) for more details on react-router support
-
-[![npm version](https://img.shields.io/npm/v/react-router-prompt.svg)](https://www.npmjs.com/package/react-router-prompt)
-
-[![npm downloads](https://img.shields.io/npm/dw/react-router-prompt.svg)](https://www.npmjs.com/package/react-router-prompt)
-
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-router-prompt)](https://www.npmjs.com/package/react-router-prompt)
 
 ## ✨ [Demo](https://codesandbox.io/s/react-router-prompt-example-react-router-6-7-y9ug7z?file=/src/App.js)
 
