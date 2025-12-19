@@ -1,7 +1,7 @@
 {
   "version": "0.8.1",
   "name": "react-router-prompt",
-  "description": "React Router Navigation Prompt for v6",
+  "description": "React Router Navigation Prompt for v7",
   "type": "module",
   "files": [
     "dist"
