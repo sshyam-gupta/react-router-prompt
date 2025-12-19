@@ -12,7 +12,8 @@
   "exports": {
     ".": {
       "import": "./dist/react-router-prompt.js",
-      "require": "./dist/react-router-prompt.umd.cjs"
+      "require": "./dist/react-router-prompt.umd.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "author": "Shyam Gupta (shyamm@outlook.com)",
